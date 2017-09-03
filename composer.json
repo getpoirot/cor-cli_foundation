@@ -1,0 +1,22 @@
+{
+    "name": "poirot/cor-cli_foundation"
+    , "description": "Poirot Cli Foundation Core Module."
+    , "authors": [
+        {
+            "name": "Payam Naderi"
+            , "email": "naderi.payam@gmail.com"
+        }
+    ]
+    , "require": {
+        "poirot/skeleton": "dev-master"
+        , "poirot/stream": "dev-master"
+    }
+    , "autoload"  : {
+        "psr-4": {
+            "Module\\CliFoundation\\": "src/"
+        },
+        "files": [
+            "src/_functions.php"
+        ]
+    }
+}
