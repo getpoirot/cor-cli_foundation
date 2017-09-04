@@ -27,8 +27,18 @@ namespace Module\CliFoundation
             if (! \Poirot\isCommandLine( $sapi->getSapiName() ) )
                 // Sapi Is Not CLI. SKIP Module Load!!
                 return false;
+
+
+            $x = "command -:f-:p-:v{}[-h]--:required[--:optional]--option";
+            $options = getopt("f:hp:");
+            var_dump($options);
+            die;
+
+            $arguments = isset($_SERVER['argv']) ? array_slice($_SERVER['argv'], 1) : [];
+            print_r($arguments);die;
+            die('>_');
         }
 
-        
+
     }
 }
