@@ -2,7 +2,7 @@
 namespace Module\CliFoundation\Services;
 
 use Module\CliFoundation\Router\ConsoleRouter;
-use Module\QueueDriver\Actions\Worker\FireWorkerAction;
+use Module\QueueDriver\Actions\Worker\FireWorkerCmd;
 use Poirot\Application\aSapi;
 use Poirot\Ioc\Container\Service\aServiceContainer;
 
@@ -30,7 +30,7 @@ class ServiceConsoleRouter
 
         // TODO add commands from config
         $consoleRouter->addCommand('workers', [
-            'action' => FireWorkerAction::class
+            'action' => FireWorkerCmd::class
         ]);
 
         return $consoleRouter;
