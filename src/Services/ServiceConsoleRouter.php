@@ -1,9 +1,8 @@
 <?php
 namespace Module\CliFoundation\Services;
 
-use Module\CliFoundation\Router\ConsoleRouter;
-use Module\QueueDriver\Actions\Worker\FireWorkerCmd;
 use Poirot\Application\aSapi;
+use Module\CliFoundation\Router\ConsoleRouter;
 use Poirot\Ioc\Container\Service\aServiceContainer;
 
 use Poirot\Std\Struct\DataEntity;
@@ -28,10 +27,9 @@ class ServiceConsoleRouter
         $consoleRouter = new ConsoleRouter;
 
 
-        // TODO add commands from config
-        $consoleRouter->addCommand('workers', [
-            'action' => FireWorkerCmd::class
-        ]);
+        $conf = $this->_getConfig();
+        foreach ($conf as $command => $params)
+            $consoleRouter->addCommand($command, $params);
 
         return $consoleRouter;
     }
