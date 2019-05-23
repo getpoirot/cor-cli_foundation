@@ -4,7 +4,7 @@ namespace Module\CliFoundation\Events\MatchRequest;
 use Module\CliFoundation\Interfaces\iCommand;
 use Module\CliFoundation\Router\ConsoleRouter;
 use Poirot\Application\aSapi;
-use Poirot\Application\Exception\exRouteNotMatch;
+use Poirot\Application\Exception\ErrorRouteNotMatch;
 use Poirot\Events\Listener\aListener;
 use Module\CliFoundation\Interfaces\iConsoleRequest;
 
@@ -32,7 +32,7 @@ class MatchReqCommandListener
 
         /** @var iCommand $command */
         if (false === $command = $consoleRouter->match($consoleRequest))
-            throw new exRouteNotMatch(sprintf(
+            throw new ErrorRouteNotMatch(sprintf(
                 'Command (%s) not match.'
                 , $consoleRequest->getCommand()
             ));
